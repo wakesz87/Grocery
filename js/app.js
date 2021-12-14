@@ -10,7 +10,7 @@ hamburger.addEventListener('click', function (event) {
     hamburger.classList.toggle('fi-arrow-left')
 })
 //termékek beillesztése******
-//ez általában backendről jön todo
+//ez általában backendről jön 
 const products = [
     {
         id: 1,
@@ -58,12 +58,41 @@ products.forEach(product => {
     <p>${product.description}</p>
     <img src="./img/${product.picture}">
     <h3>${product.price} Ft</h3>
-    <a href="#" class="addCart">Kosárba</a>
+    <a id="${product.id} class="addToCart">Kosárba</a>
     </div>`
 })
 
 //kosár kezelése******
-const cart ={}
+const cart = {}
+//Gyűjtsük ki az addToCart css class-ú elemket,
+const addToCartButtons = document.getElementsByClassName('addToCart')
+//nézzük meg hogy mennyi van belőle
+const buttonCount = addToCartButtons.length
+//lépegessünk végig rajta
+for (let i = 0; i < buttonCount; i++) {
+    cartIcon.classList.toggle('menu-active')
+//click figyelő hozzáadása
+    addToCartButtons[i].addEventListener('click', function (event) {
+//ha a kosár üres akkor adjuk hozzá 1 db
+      if(cart[event.target.id] == undefined){
+        cart[event.target.id] = 1
+//ha benne van a db szám növelése
+      }else{
+        cart[event.target.id]++
+      }    
+    })
+}
 
+//kosár ikon clickk event
+const cartIcon = document.getElementById('cart-icon')
+cartIcon.addEventListener('click', function (event){
+    for(const id in cart){
+      products.find(product => product.id == id).name
+      cart[id]
+      products.find(product => product.id == id).price
+    }
 
+})
+
+//kosár tartalma 
 

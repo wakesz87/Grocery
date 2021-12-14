@@ -47,7 +47,7 @@ header{
     margin: 1rem 2.5rem 0 0 ;
 }
 
-nav{
+nav, #cart {
     position: absolute;
     top: 0px;
     height: 100%;
@@ -67,6 +67,23 @@ nav a {
 .menu-active {
     transform: translateX(0);
 } 
+
+#cart-content{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #7c6a0a;
+  color: #fff;
+  width: 60%;
+  padding-top: 3.8rem 1rem;
+  transform: translateX(-140vh);
+  transition: transform 300ms ease-in-out;
+}
+
+#cart-content.active{
+  transform: translateY(0);
+}
 
 main h1{
     margin: 0 1rem;
